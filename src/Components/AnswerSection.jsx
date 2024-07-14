@@ -1,19 +1,41 @@
 // components/AnswerSection.jsx
+import Divider from "@mui/material/Divider";
+import { Box, Grid } from "@mui/material";
 
 const AnswerSection = ({ storedValues }) => {
   return (
     <>
-      <hr className="hr-line" />
-      <div className="answer-container">
+      <Divider>Chat History</Divider>
+      <Grid container justifyContent="center" my={5}>
         {storedValues.map((value, index) => {
           return (
-            <div className="answer-section" key={index}>
-              <p className="question">{value.question}</p>
-              <p className="answer">{value.answer}</p>
-            </div>
+            <Grid item xs={12} key={index}>
+              <Box
+                sx={{
+                  width: "100%",
+                  p: 3,
+                  bgcolor: "primary.main",
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                }}
+              >
+                {value.question}
+              </Box>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  p: 3,
+                  bgcolor: "secondary.main",
+                }}
+              >
+                {value.answer}
+              </Box>
+            </Grid>
           );
         })}
-      </div>
+      </Grid>
     </>
   );
 };

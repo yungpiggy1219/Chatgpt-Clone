@@ -6,6 +6,19 @@ import Header from "./Components/Header.jsx";
 import FormSection from "./Components/FormSection.jsx";
 import AnswerSection from "./Components/AnswerSection.jsx";
 import OpenAI from "openai";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { pink, yellow } from "@mui/material/colors";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: pink[200],
+    },
+    secondary: {
+      main: yellow[300],
+    },
+  },
+});
 
 const App = () => {
   const openai = new OpenAI({
@@ -18,14 +31,16 @@ const App = () => {
   const generateResponse = async (newQuestion, setNewQuestion) => {
     let options = {
       model: "gpt-3.5-turbo",
-      messages: [      {
-        role: "system",
-        content: "You are a helpful assistant.",
-      },
-      {
-        role: "user",
-        content: newQuestion,
-      },],
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful assistant.",
+        },
+        {
+          role: "user",
+          content: newQuestion,
+        },
+      ],
       temperature: 0,
       max_tokens: 100,
       top_p: 1,
@@ -49,11 +64,11 @@ const App = () => {
   };
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Header />
       <FormSection generateResponse={generateResponse} />
       <AnswerSection storedValues={storedValues} />
-    </div>
+    </ThemeProvider>
   );
 };
 
