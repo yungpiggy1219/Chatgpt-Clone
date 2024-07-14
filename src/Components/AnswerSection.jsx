@@ -1,11 +1,13 @@
 // components/AnswerSection.jsx
 import Divider from "@mui/material/Divider";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 const AnswerSection = ({ storedValues }) => {
   return (
     <>
-      <Divider>Chat History</Divider>
+      <Divider>
+        <Typography>Chat History</Typography>
+      </Divider>
       <Grid container justifyContent="center" my={5}>
         {storedValues.map((value, index) => {
           return (
@@ -20,7 +22,7 @@ const AnswerSection = ({ storedValues }) => {
                   },
                 }}
               >
-                {value.question}
+                <Typography>{value.question}</Typography>
               </Box>
 
               <Box
@@ -30,7 +32,7 @@ const AnswerSection = ({ storedValues }) => {
                   bgcolor: "secondary.main",
                 }}
               >
-                {value.answer}
+                <Typography>{value.answer}</Typography>
               </Box>
             </Grid>
           );
