@@ -14,4 +14,4 @@ This project is a clone of OpenAI's ChatGPT. It's a conversational AI model that
 - [Material UI](https://mui.com/)
 
 ## Screenshot
-<img width="788" alt="Insight Screen" src="">
+<img width="788" alt="Insight Screen" src="https://github.com/yungpiggy1219/chatgpt-clone/blob/master/src/Sreenshot.png">
