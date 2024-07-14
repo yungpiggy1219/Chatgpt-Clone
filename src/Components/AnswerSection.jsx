@@ -11,7 +11,7 @@ const AnswerSection = ({ storedValues }) => {
       <Grid container justifyContent="center" my={5}>
         {storedValues.map((value, index) => {
           return (
-            <Grid item xs={12} key={index}>
+            <Grid item xs={12} key={index} mb={5}>
               <Box
                 sx={{
                   width: "100%",
